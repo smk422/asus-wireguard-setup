@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# WireGuard UI Init Script
+# Place this file at: /opt/etc/init.d/S51wireguard-ui
+# Make executable: chmod +x /opt/etc/init.d/S51wireguard-ui
+#
+# Starts WireGuard UI web interface on port 5000
+#
+
+ENABLED=yes
+PROCS=wireguard-ui
+
+start() {
+    if [ "$ENABLED" = "yes" ]; then
+        echo "Starting WireGuard UI"
+        cd /opt/etc/wireguard
+        ./wireguard-ui --bind-address 0.0.0.0:5000 > /dev/null 2>&1 &
+    fi
+}
+
+stop() {
+    echo "Stopping WireGuard UI"
+    killall wireguard-ui
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        sleep 2
+        start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit 0

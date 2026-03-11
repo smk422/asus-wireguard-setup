@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# WireGuard Interface Init Script
+# Place this file at: /opt/etc/init.d/S50wireguard
+# Make executable: chmod +x /opt/etc/init.d/S50wireguard
+#
+# Controls WireGuard wg0 interface startup/shutdown
+#
+
+ENABLED=yes
+PROCS=wg-quick
+
+start() {
+    if [ "$ENABLED" = "yes" ]; then
+        echo "Starting WireGuard"
+        /opt/bin/wg-quick up wg0
+    fi
+}
+
+stop() {
+    echo "Stopping WireGuard"
+    /opt/bin/wg-quick down wg0
+}
+
+restart() {
+    stop
+    sleep 2
+    start
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart|reload)
+        restart
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit 0
