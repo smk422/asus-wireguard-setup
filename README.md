@@ -152,6 +152,10 @@ Found an issue or have an improvement? Contributions welcome!
 - **Entware** - [Entware project](https://github.com/Entware/Entware)
 - **ASUSWRT-Merlin** - [RMerl](https://github.com/RMerl/asuswrt-merlin.ng)
 
+## Acknowledgments
+
+This guide was created with assistance from **GitHub Copilot** (Claude Sonnet 4.5) during a real late-night troubleshooting session. Every issue, solution, and fix documented here comes from actual hardware testing and problem-solving on a live router setup.
+
 ## Support
 
 - 📖 Read the [complete guide](./asus-wireguard-setup.md) first
@@ -167,3 +171,4 @@ MIT License - See [LICENSE](./LICENSE) file for details.
 
 **Tested:** March 11, 2026 | **Hardware:** RT-AC86U (aarch64) | **Firmware:** Merlin 386.14_2
 **Status:** Power-cycle tested and working ✅
+**Created with:** Real hardware + GitHub Copilot collaboration
